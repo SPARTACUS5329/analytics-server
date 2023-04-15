@@ -1,6 +1,6 @@
 # Logs
 FMP
-__pycache__
+__pycache__/
 logs
 *.log
 nm-debug.log*

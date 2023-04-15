@@ -1,13 +1,13 @@
 # Formula to calculate RSI
 # RSI = 100 – (100 / [1 +RS ])
 
-
 # Importing required packages
 
 from datetime import datetime
 from pandas_datareader import data as pdr
 import yfinance as yf
 yf.pdr_override()
+import yahoo_fin.stock_info as si
 
 import numpy as np
 
@@ -107,7 +107,9 @@ def rsi(symbol):
     return(rsi)
 
 
-# def call(symbol):
+def call(symbol):
+    msft_data = si.get_quote_table(symbol)
+    return (msft_data)
 
 
     

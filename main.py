@@ -1,7 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_restful import Api, Resource
 
-
 from sentient import sentient
 from model import prediction
 from data import rsi,call
@@ -38,8 +37,6 @@ def get_data():
     symbol = request.get_json()["symbol"]
     # iteration, price, gain, loss, avg_gain, avg_loss, rsi
     return jsonify(call(symbol))
-
-
 
 
 

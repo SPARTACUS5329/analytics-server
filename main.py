@@ -3,6 +3,8 @@ from flask_restful import Api, Resource
 
 
 from sentient import sentient
+from model import prediction
+
 # Create a Flask app
 app = Flask(__name__)
 api = Api((app))
@@ -12,24 +14,14 @@ api = Api((app))
 
 @app.route('/predict', methods=['POST'])
 def make_prediction():
-    # # Get the input data from the request
-    # input_data = request.get_json()
-
-    # # Make predictions using the loaded model
-    # predictions = predict(input_data)
-
-    # # Return the predictions as JSON
-    # return jsonify(predictions)
-    return jsonify("Hello")
+    symbol = request.get_json()["symbol"]
+    return jsonify(prediction(symbol))
 
 @app.route('/sentient', methods=['POST'])
 def make_sentient():
     symbol = request.get_json()["symbol"]
     vals = sentient(symbol)
-    print(vals)
     return jsonify(vals)
-
-
 
 
 

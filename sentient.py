@@ -46,16 +46,3 @@ def sentient(symbol):
             return (result)
     return ("Invalid Token")
 
-
-
-#         text = nlp(main).ents
-#         output = " ".join([str(x) for x in text])
-#         final_score = 0
-#         temp_holder = [[],[]]
-#         for i in range(len(main)//100):
-#             res = specific_model(main[i*100:(i+1)*100])[0]
-#             if res["label"] == 'POS':
-#                 temp_holder[1].append(res["score"])
-#             elif res["label"] == 'NEG':
-#                 temp_holder[0].append(res['score'])
-# sentient("sd")

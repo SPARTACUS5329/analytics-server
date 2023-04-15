@@ -22,8 +22,16 @@ def make_prediction():
     # return jsonify(predictions)
     return jsonify("Hello")
 
+@app.route('/sentient', methods=['POST'])
+def make_sentient():
+    symbol = request.get_json()["symbol"]
+    vals = sentient(symbol)
+    print(vals)
+    return jsonify(vals)
 
-def sentient(""):
+
+
+
 
 
 # Run the Flask app

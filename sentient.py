@@ -15,13 +15,14 @@ nlp = en_core_web_sm.load()
 
 # Importing hugging face model
 from transformers import pipeline
-sentiment_pipeline = pipeline("sentiment-analysis")
+#sentiment_pipeline = pipeline("sentiment-analysis")
 specific_model = pipeline(model="finiteautomata/bertweet-base-sentiment-analysis")
 
 rootdir = './FMP'
 
 
 def sentient(symbol):
+    result = []
     for i in os.listdir(rootdir):
         if i == symbol:
             for subdir, dirs, files in os.walk(rootdir + "/" + symbol):
@@ -35,18 +36,17 @@ def sentient(symbol):
                         text = nlp(main).ents
                         output = " ".join([str(x) for x in text])
                         final_score = 0
-                        for i in range(len(main)//100):
-                            res = specific_model(main[i*100:(i+1)*100])[0]
+                        for i in range(len(output)//100):
+                            res = specific_model(output[i*100:(i+1)*100])[0]
                             if res["label"] == 'POS':
                                 final_score += (A * res['score'])
                             elif res["label"] == 'NEG':
                                 final_score += (B * res['score'])
-                        print(final_score)
-
+                        result.append([[subdir[-4:]] ,[final_score]])
+            return (result)
     return ("Invalid Token")
 
 
-sentient("A")
 
 #         text = nlp(main).ents
 #         output = " ".join([str(x) for x in text])

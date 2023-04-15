@@ -4,6 +4,8 @@ from flask_restful import Api, Resource
 
 from sentient import sentient
 from model import prediction
+from data import rsi
+
 
 # Create a Flask app
 app = Flask(__name__)
@@ -22,6 +24,15 @@ def make_sentient():
     symbol = request.get_json()["symbol"]
     vals = sentient(symbol)
     return jsonify(vals)
+
+@app.route('/data', methods=['POST'])
+def get_data():
+    symbol = request.get_json()["symbol"]
+    # iteration, price, gain, loss, avg_gain, avg_loss, rsi
+    output = rsi(symbol)
+    print(output)
+    return jsonify(output)
+
 
 
 

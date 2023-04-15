@@ -42,7 +42,7 @@ def prediction(symbol):
     # Get the models predicted price values 
     predictions = model.predict(x_test)
     predictions = scaler.inverse_transform(predictions)
-    return(predictions)
+    return({'predictions':list(predictions)})
 
 
 

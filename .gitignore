@@ -1,9 +1,9 @@
 # Logs
 FMP
-
+__pycache__
 logs
 *.log
-npm-debug.log*
+nm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*

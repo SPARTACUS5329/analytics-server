@@ -6,7 +6,7 @@
 ``` 
 git clone https://github.com/SPARTACUS5329/analytics-server.git
 pip install -r requirements.txt 
-python main.py 
+uvicorn app:app --reload
 ```
 
 Download the FMP folder from the datasets given

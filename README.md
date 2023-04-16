@@ -34,3 +34,6 @@ Download the FMP folder from the datasets given
 		- Forware P/E value
 		
 3. Prediction reccomendation based on past data using LSTM networks, trained on past data
+
+
+### This hasnt been hosted as we were out of credits and when we tried to deploy both servers on the ec2 instance it started crashing.
